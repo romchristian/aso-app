@@ -1,0 +1,22 @@
+<div class="audit-wrapper">
+  <div class="audit-field">
+    <label>Creado por</label>
+    <span>{{ auditService.entity?.createdBy }}</span>
+  </div>
+  <div class="audit-field">
+    <label>Fecha Creación</label>
+    <span>{{
+      auditService.entity?.createdDate ?? "" | date: "dd/MM/yyyy"
+    }}</span>
+  </div>
+  <div class="audit-field">
+    <label>Última modificación Por</label>
+    <span>{{ auditService.entity?.updatedBy }}</span>
+  </div>
+  <div class="audit-field">
+    <label>Fecha Última modificación</label>
+    <span>{{
+      auditService.entity?.updatedDate ?? "" | date: "dd/MM/yyyy"
+    }}</span>
+  </div>
+</div>

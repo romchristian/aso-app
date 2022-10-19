@@ -1,0 +1,246 @@
+<div [formGroup]="formABM" [title]="'Datos Generales'" class="card-body">
+ <span> <b>Datos Generales</b></span>
+
+  <div class="general-grid p-fluid pt-4">
+    <app-input-label
+      [id]="'numeroSocio-input'"
+      [fieldControl]="numeroSocio"
+      [label]="'N° Socio'"
+    >
+      <input
+        pInputText
+        id="numeroSocio-input"
+        type="text"
+        formControlName="numeroSocio"        
+        [readonly]="context === 'view'"
+      />
+    </app-input-label>
+
+    <p-checkbox
+      [binary]="true"
+      formControlName="esContribuyente"
+      inputId="esContribuyente-binary"
+      label="Es Contribuyente"
+    ></p-checkbox>
+    <!-- Nombres -->
+
+    <app-input-label
+      [id]="'nombres-input'"
+      [fieldControl]="nombres"
+      [label]="'Nombres'"
+    >
+      <input
+        pInputText
+        id="nombres-input"
+        type="text"
+        formControlName="nombres"        
+        [readonly]="context === 'view'"
+      />
+    </app-input-label>
+    <!-- Apellidos -->
+    <app-input-label
+      [id]="'apellidos-input'"
+      [fieldControl]="apellidos"
+      [label]="'Apellidos'"
+    >
+      <input
+        pInputText
+        id="apellidos-input"
+        type="text"
+        formControlName="apellidos"       
+        [readonly]="context === 'view'"
+      />
+    </app-input-label>
+    <!-- Numero Documento -->
+    <app-input-label
+      [id]="'numeroDocumento-input'"
+      [fieldControl]="numeroDocumento"
+      [label]="'N° Documentos'"
+    >
+      <input
+        pInputText
+        id="numeroDocumento-input"
+        type="text"
+        formControlName="numeroDocumento"
+        [readonly]="context === 'view'"
+      />
+    </app-input-label>
+    <!-- Nombre Conyugue -->
+    <app-input-label
+      [id]="'nombreConyuge-input'"
+      [fieldControl]="nombreConyuge"
+      [label]="'Nombre Conyuge'"
+    >
+      <input
+        pInputText
+        id="nombreConyuge-input"
+        type="text"
+        formControlName="nombreConyuge"
+        [readonly]="context === 'view'"
+      />
+    </app-input-label>
+    <!-- Profesion -->
+    <app-input-label
+      [id]="'profesion-input'"
+      [fieldControl]="profesion"
+      [label]="'Profesión'"
+    >
+      <input
+        pInputText
+        id="profesion-input"
+        type="text"
+        formControlName="profesion"
+        [readonly]="context === 'view'"
+      />
+    </app-input-label>
+    <!-- Direccion -->
+    <app-input-label
+      [id]="'direccion-input'"
+      [fieldControl]="direccionTrabajo"
+      [label]="'Dirección'"
+    >
+      <input
+        pInputText
+        id="direccion-input"
+        type="text"
+        formControlName="direccionTrabajo"
+        [readonly]="context === 'view'"
+      />
+    </app-input-label>
+    <!-- Telefono trabajo -->
+    <app-input-label
+      [id]="'telefonosTrabajo-input'"
+      [fieldControl]="telefonosTrabajo"
+      [label]="'Teléfono Trabajo'"
+    >
+      <input
+        pInputText
+        id="telefonosTrabajo-input"
+        type="text"
+        formControlName="telefonosTrabajo"
+        [readonly]="context === 'view'"
+      />
+    </app-input-label>
+
+    <!-- Dirección Particular -->
+    <app-input-label
+      [id]="'direccionParticular-input'"
+      [fieldControl]="direccionParticular"
+      [label]="'Dirección Particular'"
+    >
+      <input
+        pInputText
+        id="direccionParticular-input"
+        type="text"
+        formControlName="direccionParticular"
+        [readonly]="context === 'view'"
+      />
+    </app-input-label>
+
+    <!-- Telefono trabajo -->
+    <app-input-label
+      [id]="'telefonoParticular-input'"
+      [fieldControl]="telefonoParticular"
+      [label]="'Teléfono Particular'"
+    >
+      <input
+        pInputText
+        id="telefonoParticular-input"
+        type="text"
+        formControlName="telefonoParticular"
+        [readonly]="context === 'view'"
+      />
+    </app-input-label>
+    <!-- Celular -->
+    <app-input-label
+      [id]="'celular-input'"
+      [fieldControl]="celular"
+      [label]="'N° Celular'"
+    >
+      <input
+        pInputText
+        id="celular-input"
+        type="text"
+        formControlName="celular"
+        [readonly]="context === 'view'"
+      />
+    </app-input-label>
+    <!-- Email -->
+    <app-input-label
+      [id]="'email-input'"
+      [fieldControl]="email"
+      [label]="'Correo Electrónico'"
+    >
+      <input
+        pInputText
+        id="email-input"
+        type="text"
+        formControlName="email"
+        [readonly]="context === 'view'"
+      />
+    </app-input-label>
+    <!-- Grupo Sanguineo -->
+    <app-input-label
+      [id]="'grupoSanguineo-input'"
+      [fieldControl]="grupoSanguineo"
+      [label]="'Grupo Sanguíneo'"
+    >
+      <input
+        pInputText
+        id="grupoSanguineo-input"
+        type="text"
+        formControlName="grupoSanguineo"
+        [readonly]="context === 'view'"
+      />
+    </app-input-label>
+<!-- Fecha Ingreso -->
+    <app-input-label
+        for="'fechaNacimiento-input'"
+        [fieldControl]="fechaNacimiento"
+        [label]="'Fecha de Nacimiento'"
+      >
+        <p-calendar
+          id="fechaNacimiento-input"
+          formControlName="fechaNacimiento"
+          dateFormat="dd/mm/yy"
+          [showIcon]="true"
+          [readonlyInput]="context === 'view'"
+          appendTo="body"
+        ></p-calendar>
+      </app-input-label>
+<!-- Tipo Documento -->
+      <app-input-label
+      [id]="'tipoDocumento-input'"
+      [fieldControl]="tipoDocumento"
+      [label]="'Tipo Documento'"
+    >
+      <p-autoComplete
+        formControlName="tipoDocumento"
+        [suggestions]="tipoDocumentoService.suggestions"
+        (completeMethod)="tipoDocumentoService.search($event)"
+        [field]="tipoDocumentoService.field"
+        [dropdown]="context != 'view'"
+        [readonly]="context === 'view'"
+        [forceSelection]="true"
+      >
+      </p-autoComplete>
+    </app-input-label>
+<!-- Clasificacion Socio -->
+      <app-input-label
+      [id]="'clasificacionSocio-input'"
+      [fieldControl]="clasificacionSocio"
+      [label]="'Clasificacion Socio'"
+    >
+      <p-autoComplete
+        formControlName="clasificacionSocio"
+        [suggestions]="clasificacionSocioService.suggestions"
+        (completeMethod)="clasificacionSocioService.search($event)"
+        [field]="clasificacionSocioService.field"
+        [dropdown]="context != 'view'"
+        [readonly]="context === 'view'"
+        [forceSelection]="true"
+      >
+      </p-autoComplete>
+    </app-input-label>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<p-autoComplete [id]="id" [readonly]="readonly"
+ [suggestions]="data"
+(completeMethod)="search($event)"
+[dropdown]="true"
+[virtualScroll]="true"
+[itemSize]="34"
+(onSelect)="onSelect($event)"
+(onUnselect)="onUnselect($event)"
+(onClear)="onClear($event)"
+field="nombre"
+dataKey="id"
+[autoHighlight]="true" [forceSelection]="true">
+</p-autoComplete>

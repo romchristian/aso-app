@@ -1,0 +1,86 @@
+<p-table #dt [value]="detalles.controls" [rowHover]="true" dataKey="linea">
+  <ng-template pTemplate="header">
+    <tr class="p-0">
+      <th [width]="5" class="p-0"></th>
+      <th [width]="'2%'">#</th>
+      <th [width]="'30%'">Tipo Periodo</th>
+      <th [width]="'30%'">Grado</th>
+      <th [width]="'20%'">Anio</th>
+      <th [width]="5" class="p-0">
+        <!-- <ng-container *ngTemplateOutlet="btnAdd"></ng-container> -->
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-detalle>
+    <tr [formGroup]="detalle">
+      <td>
+        <!-- *ngIf="context !== 'view'" -->
+        <a
+          type="button"
+          (click)="removeDetalle(detalle)"
+          class="table-button hover:bg-red-100"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 text-red-600"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+            />
+          </svg>
+        </a>
+      </td>
+      <td style="padding: 0">{{ detalle.value.linea }}</td>
+      <td style="padding: 0">
+        <p-dropdown
+          [options]="service.TipoPeriodoOptions"
+          formControlName="tipoPeriodo"
+          optionLabel="label"
+          optionValue="value"
+        >
+        </p-dropdown>
+      </td>
+      <td style="padding: 0">
+        <p-inputNumber formControlName="grado" [step]="0.01"> </p-inputNumber>
+      </td>
+      <!-- [readonly]="true" -->
+
+      <td style="padding: 0">
+        <p-inputNumber formControlName="anio" [step]="0.01"> </p-inputNumber>
+      </td>
+      <!-- [readonly]="true" -->
+      <td style="padding: 0">
+        <div class="p-2 m-0">
+          <button
+            *ngIf="context !== 'view'"
+            pButton
+            pRipple
+            icon="pi pi-plus"
+            type="button"
+            (click)="addDetalle()"
+            class="p-button-rounded p-button-secondary p-button-outlined text-green-600"
+          ></button>
+        </div>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<ng-template #btnAdd>
+  <div class="p-0 m-0">
+    <button
+      *ngIf="context !== 'view'"
+      pButton
+      pRipple
+      icon="pi pi-plus"
+      type="button"
+      class="p-button-rounded p-button-secondary p-button-outlined text-green-600"
+    ></button>
+  </div>
+</ng-template>

@@ -1,0 +1,24 @@
+<div class="bg-white pt-2 px-4 pb-4 border-b h-40">
+  <app-dynamic-breadcrumb></app-dynamic-breadcrumb>
+  <div class="flex align-items-center">
+    <i class="pi pi-home text-4xl"></i>
+    <h2 class="text-4xl ml-4">Portal de Socios de San Jose</h2>
+  </div>
+
+  <div class="mt-2 text-lg text-gray-600">
+    Hola {{ authService.givenName }}!
+  </div>
+</div>
+
+<div class="wrapper">
+  <div class="modules-container">
+    <app-module-access-card
+      style="height: max-content"
+      [title]="'Socios'"
+      [description]="'Módulo de demostración'"
+      [color]="'white'"
+      [img]="'../../../../../assets/images/mkt.webp'"
+      [route]="'/socios/home'"
+    ></app-module-access-card>
+  </div>
+</div>

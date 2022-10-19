@@ -1,0 +1,41 @@
+<div class="bg-white pt-2 px-4 pb-4 border-b h-40">
+  <app-dynamic-breadcrumb></app-dynamic-breadcrumb>
+  <div class="flex align-items-center">
+    <i class="{{ icon }} text-4xl"></i>
+    <h2 class="text-4xl ml-4">{{ title }}</h2>
+  </div>
+
+  <div class="mt-2 text-lg text-gray-600">
+    {{ description }}
+  </div>
+</div>
+
+<div class="w-full p-4 overflow-y-auto h-[screen-40]">
+  <div class="bg-white rounded w-full p-4">
+    <div class="flex w-full">
+      <app-module-menu-section
+        *ngFor="let section of menu?.submenu"
+        [title]="section.name"
+      >
+        <div *ngFor="let item of section?.submenu">
+          <app-module-page-link
+            *ngIf="!item.isPopup"
+            [title]="item?.name"
+            [routerLink]="item?.route"
+            [icon]="item?.icon"
+          ></app-module-page-link>
+          <li class="mb-2" *ngIf="item.isPopup">
+            <a
+              class="text-blue-500 hover:text-blue-700"
+              style="cursor: pointer"
+              (click)="showDialog(item?.component, item?.name)"
+            >
+              <i class="{{ item?.icon }}"></i>
+              <span class="ml-2">{{ item?.name }}</span>
+            </a>
+          </li>
+        </div>
+      </app-module-menu-section>
+    </div>
+  </div>
+</div>

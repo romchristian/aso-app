@@ -1,0 +1,36 @@
+.abm-body {
+  height: calc(100vh - 12rem);
+}
+
+.abm-body-with-footer {
+  height: calc(100vh - 15rem);
+}
+
+.general-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .general-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "left" "right";
+  }
+}
+
+.masCampos{
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 1rem;
+  padding-top: 1rem;
+  pointer-events: painted;
+  -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: dodgerblue;
+}
+

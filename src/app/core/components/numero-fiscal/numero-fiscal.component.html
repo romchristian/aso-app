@@ -1,0 +1,40 @@
+<label>N° Documento</label>
+<div class="my-input" [formGroup]="formABM">
+  <div class="flex items-center">
+    <span class="code3">
+      <input
+        pInputText
+        id="establecimiento-input"
+        [readonly]="context === 'view'"
+        formControlName="establecimiento"
+        placeholder="_ _ _"
+        maxlength="3"
+        (blur)="onEstChange($event)"
+      />
+    </span>
+    <span>-</span>
+    <span class="code3">
+      <input
+        pInputText
+        id="establecimiento-input"
+        [readonly]="context === 'view'"
+        formControlName="puntoExpedicion"
+        maxlength="3"
+        placeholder="_ _ _"
+        (blur)="onPExpChange($event)"
+      />
+    </span>
+    <span>-</span>
+    <span class="secuencial">
+      <input
+        pInputText
+        id="establecimiento-input"
+        [readonly]="context === 'view'"
+        formControlName="numeroSecuencial"
+        maxlength="7"
+        placeholder="_ _ _ _ _ _"
+        (blur)="onSecuencialChange($event)"
+      />
+    </span>
+  </div>
+</div>

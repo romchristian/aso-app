@@ -1,0 +1,57 @@
+<header class="h-16 bg-purple-400 flex justify-between select-none">
+  <div class="w-40 flex justify-center items-center h-full select-none">
+    <a
+      class="p-2 text-gray-800 hover:text-blue-600 focus:outline-none select-none"
+      (click)="displaySidebar = !displaySidebar"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-2rem w-2rem"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h8m-8 6h16"
+        />
+      </svg>
+    </a>
+
+    <a class="cursor-default select-none" [routerLink]="['/core/home']">
+      <span class="m-0 p-0 text-2xl text-gray-900 font-semibold select-none"
+        >ASO</span
+      >
+    </a>
+
+    <span class="ml-2 text-2xl text-white font-semibold select-none">{{
+      ambiente
+    }}</span>
+  </div>
+  <!--tailwindcss avatar-->
+  <div
+    class="flex items-center content-center mr-2"
+    (click)="menu.toggle($event)"
+  >
+    <img
+      class="rounded-full w-14 h-14 border-white border-4"
+      style="cursor: pointer"
+      src="./../assets/images/avatar.png"
+    />
+    <p-menu #menu [popup]="true" [model]="items"></p-menu>
+  </div>
+</header>
+
+<div class="h-without-toolbar flex">
+  <nav
+    class="bg-white border-r-2 border-gray-200 flex-shrink-0 transition-all duration-400 ease-in-out"
+    [ngClass]="displaySidebar ? 'w-[10rem] md:w-[15rem]' : 'hidden'"
+  >
+    <app-sidebar></app-sidebar>
+  </nav>
+  <main class="flex-1 overflow-y-auto overflow-x-auto">
+    <router-outlet></router-outlet>
+  </main>
+</div>

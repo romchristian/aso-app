@@ -1,0 +1,19 @@
+.audit-wrapper{
+  background-color: antiquewhite;
+  border-radius: 5px;
+  padding: 1rem;
+}
+
+.audit-field{
+  margin-bottom: .5rem;
+
+}
+.audit-field label {
+  font-weight: bold;
+  display: block;
+}
+
+.audit-field span {
+  font-weight: normal;
+  display: block;
+}

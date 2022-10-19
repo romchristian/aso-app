@@ -1,0 +1,75 @@
+<p-table
+  [columns]="cols"
+  [value]="data"
+  responsiveLayout="scroll"
+  [paginator]="true"
+  [rows]="pageSize"
+  [totalRecords]="totalRecords"
+  [lazy]="true"
+  (onLazyLoad)="paginatorChange($event)"
+  [loading]="loading"
+  selectionMode="single"
+  [(selection)]="selectedItem"
+  dataKey="id"
+  currentPageReportTemplate="Mostrando de {first} al {last} de {totalRecords} registros"
+  [showCurrentPageReport]="true"
+  (onRowSelect)="onRowSelect($event)"
+  (onRowUnselect)="onRowUnselect($event)"
+>
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th [pSortableColumn]="col.field" *ngFor="let col of columns">
+        {{ col.header }}
+        <p-sortIcon [field]="col.field"></p-sortIcon>
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr [pSelectableRow]="rowData">
+      <td *ngFor="let col of columns">
+        <span *ngIf="col.type === 'boolean'">{{
+          rowData[col.field] ? "SI" : "NO"
+        }}</span>
+        <span *ngIf="col.type === 'date'">{{
+          rowData[col.field] | date: "dd/MM/yyyy"
+        }}</span>
+        <span *ngIf="col.type === 'dateTime'">{{
+          rowData[col.field] | date: "dd/MM/yyyy HH:mm"
+        }}</span>
+        <span
+          *ngIf="
+            (col.type === 'number' ||
+              col.type === 'string' ||
+              col.type === 'select') &&
+            !col.ident
+          "
+          >{{ rowData[col.field] }}</span
+        >
+        <p
+          [ngClass]="rowData[col.boldField] ? '' : 'font-semibold'"
+          *ngIf="
+            (col.type === 'number' ||
+              col.type === 'string' ||
+              col.type === 'select') &&
+            col.ident &&
+            rowData['nivel'] >= 0
+          "
+        >
+          <span
+            *ngFor="
+              let item of [].constructor(getTotalSpaces(rowData['nivel']));
+              let i = index
+            "
+            >&nbsp;</span
+          >
+          {{ rowData[col.field] }}
+        </p>
+        <span *ngIf="col.type === 'entity'">{{
+          rowData[col.field] == null
+            ? ""
+            : rowData[col.field][col.descriptionField]
+        }}</span>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

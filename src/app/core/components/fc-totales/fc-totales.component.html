@@ -1,0 +1,133 @@
+<a (click)="mostrarMasTotales = !mostrarMasTotales" class="masTotales">
+  Más Totales
+  <i
+    class="pi pi-chevron-down"
+    [ngClass]="mostrarMasTotales ? 'pi-chevron-up' : 'pi-chevron-down'"
+  ></i>
+</a>
+
+<div class="totales" [formGroup]="formABM">
+  <!-- Totales IVA-->
+
+  <div
+    class="flex content-between items-center exento"
+    [ngClass]="mostrarMasTotales ? '' : 'hidden'"
+  >
+    <label class="flex flex-shrink-0">Exento</label>
+    <p-inputNumber
+      class="total"
+      id="totalExento-input"
+      formControlName="totalExento"
+      [readonly]="true"
+      [maxFractionDigits]="0"
+    ></p-inputNumber>
+  </div>
+
+  <div
+    class="flex content-between items-center gravada5"
+    [ngClass]="mostrarMasTotales ? '' : 'hidden'"
+  >
+    <label class="flex flex-shrink-0">Gravada 5</label>
+    <p-inputNumber
+      class="total"
+      id="totalGravada5-input"
+      formControlName="totalGravada5"
+      [readonly]="true"
+      [maxFractionDigits]="0"
+    ></p-inputNumber>
+  </div>
+
+  <div
+    class="flex content-between items-center gravada10"
+    [ngClass]="mostrarMasTotales ? '' : 'hidden'"
+  >
+    <label class="flex flex-shrink-0">Gravada 10</label>
+    <p-inputNumber
+      class="total"
+      id="totalGravada10-input"
+      formControlName="totalGravada10"
+      [readonly]="true"
+      [maxFractionDigits]="0"
+    ></p-inputNumber>
+  </div>
+
+  <div
+    class="flex content-between items-center totalgravada"
+    [ngClass]="mostrarMasTotales ? '' : 'hidden'"
+  >
+    <label class="flex flex-shrink-0">Total Gravada</label>
+    <p-inputNumber
+      class="total"
+      id="totalGravada-input"
+      formControlName="totalGravada"
+      [readonly]="true"
+      [maxFractionDigits]="0"
+    ></p-inputNumber>
+  </div>
+
+  <div
+    class="flex content-between items-center subtotal"
+    [ngClass]="mostrarMasTotales ? '' : 'hidden'"
+  >
+    <label class="flex flex-shrink-0">Sub total</label>
+    <p-inputNumber
+      class="total"
+      id="subTotal-input"
+      formControlName="subTotal"
+      [readonly]="true"
+    ></p-inputNumber>
+  </div>
+
+  <div
+    class="flex content-between items-center descuento"
+    [ngClass]="mostrarMasTotales ? '' : 'hidden'"
+  >
+    <label class="flex flex-shrink-0">Descuento</label>
+    <p-inputNumber
+      class="total"
+      id="totalDescuento-input"
+      formControlName="totalDescuento"
+      [readonly]="true"
+    ></p-inputNumber>
+  </div>
+
+  <div class="flex content-between items-center totalgeneral">
+    <label class="flex flex-shrink-0 text-2xl font-bold">Total</label>
+    <p-inputNumber
+      class="total total-principal"
+      formControlName="total"
+      [readonly]="true"
+    ></p-inputNumber>
+  </div>
+
+  <div class="flex content-between items-center iva5">
+    <label class="flex flex-shrink-0">IVA 5%</label>
+    <p-inputNumber
+      class="total"
+      id="totalIva5-input"
+      formControlName="totalIva5"
+      [readonly]="true"
+      [maxFractionDigits]="0"
+    ></p-inputNumber>
+  </div>
+  <div class="flex content-between items-center iva10">
+    <label class="flex flex-shrink-0">IVA 10%</label>
+    <p-inputNumber
+      class="total"
+      id="totalIva10-input"
+      formControlName="totalIva10"
+      [readonly]="true"
+      [maxFractionDigits]="0"
+    ></p-inputNumber>
+  </div>
+  <div class="flex content-between items-center totaliva">
+    <label class="flex flex-shrink-0">Total IVA</label>
+    <p-inputNumber
+      class="total"
+      id="totalIva-input"
+      formControlName="totalIva"
+      [readonly]="true"
+      [maxFractionDigits]="0"
+    ></p-inputNumber>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<p-toast position="top-center"></p-toast>
+
+<form [formGroup]="formABM" (ngSubmit)="save()" autocomplete="off">
+  <app-card-page-free
+    [permisos]="tipoDocumentoService.permisos"
+    [description]="nombre"
+    [context]="context"
+    (onContextChange)="onContextChange($event)"
+    (onDeleteConfirm)="delete($event)"
+  >
+    <ng-container body>
+      <app-tipo-documento-body
+        [formABM]="formABM"
+        [context]="context"
+      ></app-tipo-documento-body>
+    </ng-container>
+  </app-card-page-free>
+</form>

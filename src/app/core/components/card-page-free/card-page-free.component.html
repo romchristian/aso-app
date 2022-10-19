@@ -1,0 +1,103 @@
+<div class="h-8rem bg-white border-bottom-1 border-gray-200">
+  <app-dynamic-breadcrumb *ngIf="context != 'dialog'"></app-dynamic-breadcrumb>
+  <div class="flex justify-content-between align-items-center">
+    <span class="ml-5 p-0 text-gray-600 text-2xl" *ngIf="context != 'dialog'">{{
+      description?.value | uppercase
+    }}</span>
+
+    <div class="w-20rem flex justify-content-around mr-4">
+      <button
+        *ngIf="context === 'view' && permisos?.update"
+        pButton
+        type="button"
+        label="Editar"
+        class="p-button-info p-button-text"
+        (click)="contextChange('edit')"
+      ></button>
+      <button
+        *ngIf="context != 'view'"
+        pButton
+        type="button"
+        label="Descartar"
+        class="p-button-info p-button-text"
+        (click)="contextChange('view')"
+      ></button>
+      <button
+        *ngIf="
+          (context === 'edit' ||
+            context === 'create' ||
+            context === 'dialog') &&
+          (permisos?.create || permisos?.update)
+        "
+        pButton
+        type="submit"
+        label="Guardar"
+        class="p-button-success p-button"
+      ></button>
+      <button
+        *ngIf="context != 'dialog'"
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-ellipsis-v"
+        class="p-button-rounded p-button-info ml-2"
+        (click)="displayActions = !displayActions"
+      ></button>
+    </div>
+  </div>
+</div>
+
+<div
+  class="overflow-y-auto"
+  [ngClass]="footer ? 'abm-body-with-footer' : 'abm-body'"
+>
+  <div class="bg-white border-round mt-2 ml-32 mr-60">
+    <ng-content select="[body]"></ng-content>
+  </div>
+</div>
+<div *ngIf="footer" class="h-16 flex bg-white border rounded">
+  <ng-content select="[footer]"></ng-content>
+</div>
+
+<p-confirmDialog
+  [style]="{ width: '50vw' }"
+  [baseZIndex]="10000"
+  rejectButtonStyleClass="p-button-text"
+></p-confirmDialog>
+
+<p-sidebar [(visible)]="displayActions" position="right">
+  <p-divider align="left">
+    <div class="d-inline-flex ai-center">
+      <i class="pi pi-plus mr-2"></i>
+      <b>Mas acciones</b>
+    </div>
+  </p-divider>
+
+  <ng-content select="[acciones]"></ng-content>
+
+  <p-divider align="left">
+    <div class="d-inline-flex ai-center">
+      <i class="pi pi-trash mr-2"></i>
+      <b>Eliminar Registro</b>
+    </div>
+  </p-divider>
+  <div class="text-center">
+    <button
+      *ngIf="permisos?.delete"
+      pButton
+      type="button"
+      label="Confirmar Eliminacion"
+      class="p-button-danger p-button"
+      (click)="confirmDelete()"
+    ></button>
+  </div>
+
+  <p-divider align="left">
+    <div class="d-inline-flex ai-center">
+      <i class="pi pi-trash mr-2"></i>
+      <b>Auditoría</b>
+    </div>
+  </p-divider>
+
+  <app-audit-info-card></app-audit-info-card>
+</p-sidebar>

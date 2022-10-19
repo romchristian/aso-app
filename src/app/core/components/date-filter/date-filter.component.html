@@ -1,0 +1,12 @@
+<span class="p-float-label mb-8 flex">
+  <p-dropdown [options]="options"> </p-dropdown>
+  <p-inputMask
+    [id]="id"
+    type="text"
+    [(ngModel)]="date"
+    mask="* 99/99/9999"
+    [style]="{ width: '100%' }"
+  >
+  </p-inputMask>
+  <label [for]="id">{{ title }}</label>
+</span>

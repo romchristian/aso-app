@@ -1,0 +1,77 @@
+.totales{
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 0.5rem;
+  padding-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+  .totales{
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: "exento   gravada5  gravada10  totalgravada"
+                         ".        .         subtotal   descuento"
+                         ".        .         .          totalgeneral"
+                         ".         iva5     iva10      totaliva"
+                       ;
+  }
+}
+
+
+.exento{
+  grid-area: exento;
+}
+
+.gravada5{
+  grid-area: gravada5;
+}
+
+.gravada10{
+  grid-area: gravada10;
+}
+
+.totalgravada{
+  grid-area: totalgravada;
+}
+
+.subtotal{
+  grid-area: subtotal;
+}
+
+.descuento{
+  grid-area: descuento;
+}
+
+.totalgeneral{
+  grid-area: totalgeneral;
+}
+
+.iva5{
+  grid-area: iva5;
+}
+
+.iva10{
+  grid-area: iva10;
+}
+
+.totaliva{
+  grid-area: totaliva;
+}
+
+
+.masTotales{
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 2rem;
+  padding-top: 1rem;
+  pointer-events: painted;
+  -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: dodgerblue;
+}

@@ -1,0 +1,31 @@
+<app-listpage-header
+  [title]="title"
+  [selected]="selected"
+  [displayFilter]="displayFilter"
+  [cardUrl]="cardUrl"
+  (onDisplayFilterChange)="onDisplayFilterChange($event)"
+  [permisos]="permisosToHeader"
+>
+</app-listpage-header>
+
+<app-data-table
+  [cols]="cols"
+  [data]="data"
+  [loading]="loading"
+  [totalRecords]="totalRecords"
+  (onRowSelectEvent)="onRowSelected($event)"
+  (onPaginatorChangeEvent)="onPaginatorChange($event)"
+>
+</app-data-table>
+
+<p-sidebar [(visible)]="displayFilter" position="right">
+  <span class="text-2xl">Filtros</span>
+  <p-divider></p-divider>
+  <div style="height: 2rem"></div>
+  <app-data-filter
+    [filterFields]="cols"
+    [queryParams]="queryParams"
+    (onSearch)="onFilterChange($event)"
+  >
+  </app-data-filter>
+</p-sidebar>

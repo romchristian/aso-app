@@ -1,0 +1,46 @@
+<div [formGroup]="formABM" [title]="'Datos Generales'" class="card-body">
+  <div class="general-grid p-fluid pt-4">
+    <app-input-label
+      [id]="'codigo-input'"
+      [fieldControl]="codigo"
+      [label]="'Código'"
+    >
+      <input
+        pInputText
+        id="codigo-input"
+        type="text"
+        formControlName="codigo"
+        required
+        [readonly]="context === 'view'"
+      />
+    </app-input-label>
+
+    <app-input-label
+      [id]="'nombre-input'"
+      [fieldControl]="nombre"
+      [label]="'Nombre'"
+    >
+      <input
+        pInputText
+        id="nombre-input"
+        type="text"
+        formControlName="nombre"
+        required
+        [readonly]="context === 'view'"
+      />
+    </app-input-label>
+    <app-input-label
+      [id]="'descripcion-input'"
+      [fieldControl]="descripcion"
+      [label]="'Descripción'"
+    >
+      <input
+        pInputText
+        id="descripcion-input"
+        type="text"
+        formControlName="descripcion"
+        [readonly]="context === 'view'"
+      />
+    </app-input-label>
+  </div>
+</div>

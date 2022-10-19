@@ -1,0 +1,11 @@
+<span class="p-float-label">
+  <ng-content></ng-content>
+  <label [for]="id">{{label}}</label>
+</span>
+<div  *ngIf="fieldControl?.invalid && (fieldControl?.dirty || fieldControl?.touched)" class="bg-pink-100 p-2 mt-2 border-round">
+  <div *ngIf="fieldControl?.errors" class="text-pink-500">
+    <span *ngFor="let error of fieldControl?.errors | keyvalue">
+      <span *ngIf="error.value">{{traducir(error)}}</span>
+    </span>
+  </div>
+</div>

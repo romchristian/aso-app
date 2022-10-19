@@ -1,0 +1,18 @@
+<p-toast position="top-center"></p-toast>
+
+<form [formGroup]="formABM" (ngSubmit)="save()" autocomplete="off">
+  <app-card-page-free
+    [permisos]="clasficacionSocioService.permisos"
+    [description]="codigo"
+    [context]="context"
+    (onContextChange)="onContextChange($event)"
+    (onDeleteConfirm)="delete($event)"
+  >
+    <ng-container body>
+      <app-clasificacion-socio-body
+        [formABM]="formABM"
+        [context]="context"
+      ></app-clasificacion-socio-body>
+    </ng-container>
+  </app-card-page-free>
+</form>

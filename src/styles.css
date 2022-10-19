@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .main_menu_item {
+    @apply flex items-center p-4 hover:bg-gray-50  cursor-pointer hover:text-yellow-500 hover:font-bold hover:translate-x-1 transition-transform ease-in duration-200;
+  }
+
+  .container-botones-listpage {
+    @apply flex justify-around items-center w-80 pb-4;
+  }
+
+  .filter-container {
+    @apply flex flex-col justify-around mt-8;
+  }
+
+  .table-button {
+    @apply flex justify-center items-center  p-2 text-center hover:rounded-full   cursor-pointer;
+  }
+}
+
+:root {
+  font-size: 90%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+}
+.p-breadcrumb {
+  border: none;
+  font-weight: 500;
+}
+
+.h-without-toolbar {
+  height: calc(100vh - 4rem);
+}
+
+p-inputnumber,
+.p-inputnumber {
+  width: 100%;
+  text-align: right;
+}
+
+.p-inputnumber-input {
+  text-align: right;
+}
+.p-autocomplete {
+  width: 100%;
+}
+.p-inputtext {
+  width: 100%;
+}
+.p-dropdown:not(.p-disabled).p-focus {
+  border-color: rgb(147, 195, 243);
+  box-shadow: none;
+}
+.p-inputtext:disabled, .p-inputtext:read-only{
+  background-color:#eff2f5
+}
+
+p-inputnumber.total>span>input {
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-weight: 700;
+}
+p-inputnumber.total>span>input:disabled, p-inputnumber.total>span>input:read-only {
+  background-color: white;
+}
+p-inputnumber.total.total-principal>span>input, p-inputnumber.total.total-principal>span>input:disabled, p-inputnumber.total.total-principal>span>input:read-only{
+ font-size: 1.5rem;
+}
+
+.rounded-full {
+  border-radius: 50%;
+}
+
+.general-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1.5rem;
+}

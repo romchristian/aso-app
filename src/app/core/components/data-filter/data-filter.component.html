@@ -1,0 +1,115 @@
+<form class="flex flex-column h-full" autocomplete="off" (ngSubmit)="search()">
+  <div *ngFor="let filter of filterFields" class="mb-6">
+    <span
+      *ngIf="filter.type === 'string' && !filter.inputType && filter.filter"
+      class="p-float-label"
+    >
+      <input
+        id="{{ filter.field }}-input"
+        type="text"
+        pInputText
+        [(ngModel)]="queryParams[filter.field]"
+        [ngModelOptions]="{ standalone: true }"
+      />
+      <label for="{{ filter.field }}-input">{{ filter.header }}</label>
+    </span>
+
+    <span
+      *ngIf="filter.type === 'number' && !filter.inputType && filter.filter"
+      class="p-float-label"
+    >
+      <p-inputNumber
+        id="{{ filter.field }}-input"
+        [(ngModel)]="queryParams[filter.field]"
+        [ngModelOptions]="{ standalone: true }"
+      ></p-inputNumber>
+      <label for="{{ filter.field }}-input">{{ filter.header }}</label>
+    </span>
+
+    <div *ngIf="filter.type === 'date' && filter.filter">
+      <span class="p-float-label mb-6">
+        <p-calendar
+          id="{{ filter.field }}-Desdeinput"
+          dateFormat="dd/mm/yy"
+          [(ngModel)]="queryParams[filter.field + 'Desde']"
+          [showIcon]="true"
+          [ngModelOptions]="{ standalone: true }"
+          [baseZIndex]="100000"
+          appendTo="body"
+        ></p-calendar>
+
+        <label for="{{ filter.field }}-Desdeinput"
+          >{{ filter.header }} desde:</label
+        >
+      </span>
+
+      <span class="p-float-label">
+        <p-calendar
+          id="{{ filter.field }}-Hastainput"
+          dateFormat="dd/mm/yy"
+          [(ngModel)]="queryParams[filter.field + 'Hasta']"
+          [showIcon]="true"
+          [ngModelOptions]="{ standalone: true }"
+          [baseZIndex]="100000"
+          appendTo="body"
+        ></p-calendar>
+
+        <label for="{{ filter.field }}-hastainput"
+          >{{ filter.header }} hasta:</label
+        >
+      </span>
+    </div>
+
+    <div
+      *ngIf="
+        filter.type === 'string' &&
+        filter.inputType &&
+        filter.inputType === 'select' &&
+        filter.filter
+      "
+      class="p-float-label"
+    >
+      <p-dropdown
+        id="{{ filter.field }}-input"
+        [options]="filter.options"
+        [(ngModel)]="queryParams[filter.field]"
+        optionLabel="label"
+        optionValue="value"
+        [ngModelOptions]="{ standalone: true }"
+        [showClear]="true"
+        appendTo="body"
+      ></p-dropdown>
+
+      <label for="{{ filter.field }}-input">{{ filter.header }}</label>
+    </div>
+
+    <div *ngIf="filter.type === 'entity' && filter.filter">
+      <span class="p-float-label">
+        <p-autoComplete
+          id="{{ filter.field }}-input"
+          [(ngModel)]="queryParams[filter.field]"
+          [ngModelOptions]="{ standalone: true }"
+          [suggestions]="filter.service.suggestions"
+          (completeMethod)="filter.service.search($event, filter.isTree)"
+          field="{{ filter.service.getAutoCompleteField() }}"
+          dataKey="id"
+          [dropdown]="true"
+          (onSelect)="onSelect(queryParams[filter.field], filter.observer)"
+          (onUnselect)="onSelect(queryParams[filter.field], filter.observer)"
+          [multiple]="true"
+          appendTo="body"
+        >
+        </p-autoComplete>
+        <label for="{{ filter.field }}-input">{{ filter.header }}</label>
+      </span>
+    </div>
+  </div>
+
+  <button
+    pButton
+    pRipple
+    type="submit"
+    label="Buscar"
+    class="p-button-rounded p-button-info"
+  ></button>
+</form>

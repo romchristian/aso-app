@@ -1,0 +1,17 @@
+<div [formGroup]="formABM" [title]="'Datos Generales'" class="card-body">
+  <div class="general-grid p-fluid pt-4">
+    <app-input-label
+      [id]="'nombre-input'"
+      [fieldControl]="nombre"
+      [label]="'Nombre'"
+    >
+      <input
+        pInputText
+        id="nombre-input"
+        type="text"
+        formControlName="nombre"        
+        [readonly]="context === 'view'"
+      />
+    </app-input-label>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<p-toast position="top-center"></p-toast>
+
+<form [formGroup]="formABM" (ngSubmit)="save()" autocomplete="off">
+  <app-card-page-free
+    [permisos]="socioService.permisos"
+    [description]="numeroSocio"
+    [context]="context"
+    (onContextChange)="onContextChange($event)"
+    (onDeleteConfirm)="delete($event)"
+  >
+    <ng-container body>
+      <app-socio-body
+        [formABM]="formABM"
+        [context]="context"
+      ></app-socio-body>
+    </ng-container>
+
+    <ng-container body>
+        <p-panel [header]="'Periodos'" [toggleable]="true">
+          <app-socio-detalle
+            [formABM]="formABM"
+            [context]="context"
+            [detallesData]="detallesSb"
+          >
+          </app-socio-detalle>
+        </p-panel>
+      </ng-container>
+  </app-card-page-free>
+</form>
